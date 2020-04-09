@@ -1,5 +1,7 @@
 extends "res://rigid_entity.gd"
 
+signal die
+
 const SPEED = 0.5
 const ROTATION_SPEED = 2.0
 
@@ -37,8 +39,11 @@ func shoot():
 
 func kill():
 	var particles = preload("res://particles.tscn").instance()
+	
 	particles.position = position
 	get_parent().add_child(particles)
 	particles.shoot()
+	
+	emit_signal("die")
 	
 	queue_free()

@@ -10,7 +10,12 @@ script = ExtResource( 1 )
 position = Vector2( 128, 120 )
 gravity_scale = 0.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="RandomTick" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[node name="PlayerDieDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="RandomTick" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PlayerDieDelay" to="." method="_show_game_over"]

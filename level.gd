@@ -15,6 +15,8 @@ func _ready():
 	for i in range(0, 6):
 		spawn_random_asteroid()
 	
+	$Player.connect("die", self, "_player_dies")
+
 func spawn_random_asteroid():
 	spawn_asteroid(random.randi_range(0, 4))
 
@@ -39,6 +41,12 @@ func spawn_asteroid(from):
 	asteroid.apply_impulse(Vector2(), asteroid._random_vec2(-24, 24))
 	
 	add_child(asteroid)
+
+func _player_dies():
+	$PlayerDieDelay.start()
+
+func _show_game_over():
+	GameManager.change_scene("game_over")
 
 func _on_timer_timeout():
 	if (randf() < 0.25):

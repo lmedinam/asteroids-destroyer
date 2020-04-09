@@ -13,6 +13,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+editor/display_folded = true
 margin_left = 14.0
 margin_top = 14.0
 margin_right = 242.0
