@@ -20,3 +20,8 @@ region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="Cannon" type="Position2D" parent="Sprite"]
 position = Vector2( 8, 0 )
+
+[node name="ShootDelay" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+[connection signal="timeout" from="ShootDelay" to="." method="_on_shoot_delay_timeout"]

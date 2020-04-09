@@ -5,18 +5,18 @@ signal die
 const SPEED = 0.5
 const ROTATION_SPEED = 2.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var can_shoot = true
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and can_shoot:
 		shoot()
 
 func _process(delta):
 	var aim =  get_viewport().get_mouse_position() / OS.window_size * Vector2(256, 240)
 	var look_at = position.angle_to(aim)
+	
 	$Sprite.look_at(aim)
+	
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
@@ -29,6 +29,9 @@ func _physics_process(delta):
         apply_impulse(Vector2(), Vector2(0, 1) * SPEED)
 
 func shoot():
+	can_shoot = false
+	$ShootDelay.start()
+	
 	var bullet = preload("res://bullet.tscn").instance()
 	var cannon_position = $Sprite/Cannon.get_global_position()
 	
@@ -47,3 +50,6 @@ func kill():
 	emit_signal("die")
 	
 	queue_free()
+
+func _on_shoot_delay_timeout():
+	can_shoot = true
