@@ -16,7 +16,6 @@ func _process(delta):
 	var look_at = position.angle_to(aim)
 	
 	$Sprite.look_at(aim)
-	
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):

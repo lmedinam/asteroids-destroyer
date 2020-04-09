@@ -79,11 +79,11 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="Label2" type="Label" parent="Footer/HBoxContainer"]
-margin_left = 99.0
-margin_right = 157.0
+margin_left = 86.0
+margin_right = 170.0
 margin_bottom = 3.0
 custom_fonts/font = ExtResource( 4 )
-text = "By Dobleme Team"
+text = "By Dobleme Team - v0.1.0"
 
 [node name="HSeparator" type="HSeparator" parent="Footer"]
 margin_top = 228.0

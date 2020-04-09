@@ -7,7 +7,10 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.0
 
-[node name="AsteroidBig" instance=ExtResource( 1 )]
+[node name="AsteroidBig" groups=[
+"big_asteroids",
+] instance=ExtResource( 1 )]
+angular_velocity = -0.0947374
 collision_radius = 14
 spawn_at_destroy = 2
 spawn_scene = ExtResource( 2 )

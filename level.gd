@@ -49,5 +49,11 @@ func _show_game_over():
 	GameManager.change_scene("game_over")
 
 func _on_timer_timeout():
-	if (randf() < 0.25):
+	var ratio = 100
+	var big_asteroids = get_tree().get_nodes_in_group("big_asteroids")
+	
+	if big_asteroids.size() > 0:
+		ratio = 100 / big_asteroids.size()
+	
+	if (rand_range(0, 100) < ratio):
 		spawn_random_asteroid()

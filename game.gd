@@ -3,7 +3,8 @@ extends Node2D
 const scenes = {
 	"level": "res://level.tscn",
 	"menu": "res://menu.tscn",
-	"game_over": "res://game_over.tscn"
+	"game_over": "res://game_over.tscn",
+	"intro": "res://intro.tscn"
 }
 
 var actual_scene
