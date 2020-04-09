@@ -16,6 +16,8 @@ func _ready():
 	
 	# And then set the shape size
 	_set_collision_shape_radius()
+	
+	set_angular_velocity(rand_range(-0.5, 0.5))
 
 func _process(delta):
 	if Engine.editor_hint:
@@ -45,6 +47,8 @@ func _on_area_2d_body_entered(body):
 			if (body.get("direction") != null):
 				call_deferred("_spawn_asteroids", body.direction)
 		
+		GameManager.add_score(50)
+		
 		queue_free()
 
 func _spawn_asteroids(impulse):
@@ -52,6 +56,7 @@ func _spawn_asteroids(impulse):
 		var scene = spawn_scene.instance()
 		
 		scene.position = position + _random_vec2(-8, 8)
+		
 		scene.apply_impulse(Vector2(), linear_velocity + impulse)
 		scene.apply_impulse(Vector2(), _random_vec2(-16, 16))
 		
