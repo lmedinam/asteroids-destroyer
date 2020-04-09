@@ -5,7 +5,7 @@
 [ext_resource path="res://main_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://small_font.tres" type="DynamicFont" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -14,62 +14,81 @@ margin_right = -544.0
 margin_bottom = -360.0
 script = ExtResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Header" type="VBoxContainer" parent="."]
 margin_top = 28.0
 margin_right = 256.0
 margin_bottom = 218.0
 custom_constants/separation = 31
 alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 47.0
+[node name="TitleContainer" type="HBoxContainer" parent="Header"]
+editor/display_folded = true
+margin_top = 42.0
 margin_right = 256.0
-margin_bottom = 99.0
+margin_bottom = 94.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Header/TitleContainer"]
 margin_left = 62.0
 margin_right = 194.0
 margin_bottom = 52.0
 texture = ExtResource( 2 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 130.0
+[node name="ContentContainer" type="VBoxContainer" parent="Header"]
+margin_top = 125.0
 margin_right = 256.0
-margin_bottom = 142.0
+margin_bottom = 148.0
+custom_constants/separation = 8
+
+[node name="StartWrapper" type="HBoxContainer" parent="Header/ContentContainer"]
+margin_right = 256.0
+margin_bottom = 12.0
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Header/ContentContainer/StartWrapper"]
 margin_left = 78.0
 margin_right = 178.0
 margin_bottom = 12.0
 custom_fonts/font = ExtResource( 3 )
 text = "Shoot to start"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="FullscreenWrapper" type="HBoxContainer" parent="Header/ContentContainer"]
+margin_top = 20.0
+margin_right = 256.0
+margin_bottom = 23.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Header/ContentContainer/FullscreenWrapper"]
+margin_left = 100.0
+margin_right = 155.0
+margin_bottom = 3.0
+custom_fonts/font = ExtResource( 4 )
+text = "f to Fullscreen"
+
+[node name="Footer" type="VBoxContainer" parent="."]
 margin_right = 256.0
 margin_bottom = 240.0
 custom_constants/separation = 0
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Footer"]
 margin_top = 225.0
 margin_right = 256.0
 margin_bottom = 228.0
 custom_constants/separation = 0
 alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer"]
+[node name="Label2" type="Label" parent="Footer/HBoxContainer"]
 margin_left = 99.0
 margin_right = 157.0
 margin_bottom = 3.0
 custom_fonts/font = ExtResource( 4 )
 text = "By Dobleme Team"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer2"]
+[node name="HSeparator" type="HSeparator" parent="Footer"]
 margin_top = 228.0
 margin_right = 256.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 0, 12 )
-custom_styles/separator = SubResource( 2 )
+custom_styles/separator = SubResource( 1 )
 custom_constants/separation = 0
