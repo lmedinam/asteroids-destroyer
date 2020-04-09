@@ -12,8 +12,9 @@ func _input(event):
 		shoot()
 
 func _process(delta):
-	var look_at = $Sprite.get_local_mouse_position()
-	$Sprite.rotation += look_at.angle() * 0.1
+	var aim =  get_viewport().get_mouse_position() / OS.window_size * Vector2(256, 240)
+	var look_at = position.angle_to(aim)
+	$Sprite.look_at(aim)
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):

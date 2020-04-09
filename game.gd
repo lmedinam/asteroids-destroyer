@@ -9,11 +9,17 @@ var viewport_size
 var random
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	random = RandomNumberGenerator.new()
 	viewport_size = get_viewport_rect().size
 	
 	for i in range(0, 6):
 		spawn_random_asteroid()
+
+func _process(delta):
+	var aim = get_viewport().get_mouse_position() / OS.window_size * Vector2(256, 240)
+	$Cursor.position = aim
 	
 func spawn_random_asteroid():
 	spawn_asteroid(random.randi_range(0, 4))
