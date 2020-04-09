@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://asteroid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://asteroid_small.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets.png" type="Texture" id=3]
+
+[node name="AsteroidMedium" instance=ExtResource( 1 )]
+collision_radius = 8
+spawn_at_destroy = 4
+spawn_scene = ExtResource( 2 )
+
+[node name="Area2D" parent="." index="1"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 16, 16 )
