@@ -10,6 +10,7 @@ var actual_scene
 
 func _ready():
 	GameManager.connect("score_updated", self, "_update_score")
+	_update_score(GameManager.score)
 
 func _process(delta):
 	var aim = get_viewport().get_mouse_position() / OS.window_size * Vector2(256, 240)
