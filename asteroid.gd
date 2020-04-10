@@ -30,6 +30,8 @@ func _set_collision_shape_radius():
 func _on_area_2d_body_entered(body):
 	var particles = preload("res://particles.tscn").instance()
 	
+	SoundsManager.play("explosion", -5)
+	
 	if (body.has_method("kill")):
 		body.kill()
 	

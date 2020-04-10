@@ -37,6 +37,8 @@ func shoot():
 	bullet.position = cannon_position
 	bullet.direction = cannon_position - position
 	
+	SoundsManager.play("shoot")
+	
 	get_parent().add_child(bullet)
 
 func kill():
@@ -45,6 +47,9 @@ func kill():
 	particles.position = position
 	get_parent().add_child(particles)
 	particles.shoot()
+	
+	SoundsManager.play("explosion", -5.0)
+	SoundsManager.play("game_over", -7.50)
 	
 	emit_signal("die")
 	

@@ -43,7 +43,7 @@ func save_game():
 	var game_save = File.new()
 	
 	game_save.open("user://game.save", File.WRITE)
-	game_save.store_line(to_json({"high_score": score}))
+	game_save.store_line(to_json({"high_score": high_score}))
 	
 	game_save.close()
 
